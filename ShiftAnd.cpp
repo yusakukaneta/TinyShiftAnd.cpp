@@ -13,7 +13,7 @@ public:
   {}
   ~ShiftAnd()
   {}
-	// Preprocessing
+  // Preprocessing
   void preprocess()
   {
     // Build bitmask I

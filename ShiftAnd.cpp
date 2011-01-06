@@ -17,7 +17,7 @@ public:
   void preprocess()
   {
     // Build bitmask F
-    mskF = 1 << (M-1);
+    mskF = 1 << M-1;
     // Build bitmask CHR
     for (std::size_t c = 0; c < mskCHR.size(); ++c)
       mskCHR[c] = 0;

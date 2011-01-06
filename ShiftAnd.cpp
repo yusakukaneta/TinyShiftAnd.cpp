@@ -16,8 +16,8 @@ public:
   // Preprocessing
   void preprocess()
   {
-    // Build bitmask I
-    mskI = 1 << (M-1);
+    // Build bitmask F
+    mskF = 1 << (M-1);
     // Build bitmask CHR
     for (std::size_t c = 0; c < mskCHR.size(); ++c)
       mskCHR[c] = 0;
@@ -30,7 +30,7 @@ public:
     block_t mskS = 0;
     for (std::size_t i = 0; i < N; ++i) {
       mskS = ((mskS << 1) | 1) & mskCHR[T[i]];
-      if ((mskS & mskI) != 0)
+      if ((mskS & mskF) != 0)
         return i-M+1;
     }
     return -1;
@@ -40,7 +40,7 @@ private:
   const std::size_t M;
   const std::string T;
   const std::size_t N;
-  block_t mskI;
+  block_t mskF;
   std::vector<block_t> mskCHR;
 };
 

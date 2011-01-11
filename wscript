@@ -14,6 +14,7 @@ def configure(conf):
     conf.check_tool('compiler_cxx')
 
 def build(bld):
+    import os
     for target in targets: 
         bld(features = ['cxx', 'cprogram'], 
             source   = target + '.cpp', 
@@ -28,10 +29,10 @@ def build(bld):
                         '-Wconversion', 
                         '-Wfloat-equal', 
                         '-Wpointer-arith'])
-
-def shutdown(ctx):
-    import os
     for target in targets: 
         print 'Pattern = "%s", Text = "%s"' % tests[target]
         command = './build/%s "%s" "%s"' % ((target,) + tests[target])
         result = os.system(command)
+
+def shutdown(ctx):
+    pass
